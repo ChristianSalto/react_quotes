@@ -43,6 +43,7 @@ textarea {
 }
 
 span {
+  font-family: monospace;
   margin-left: 20px;
   color: cornflowerblue;
 }
@@ -58,4 +59,9 @@ button span {
 
 strong {
   color: brown;
+}
+
+.alert-primary {
+  margin: 50px;
+  text-align: center;
 }

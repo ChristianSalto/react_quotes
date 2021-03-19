@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import Alert from 'react-bootstrap/Alert';
 import Form from './components/Form';
 import Quote from './components/Quote';
 
@@ -14,6 +15,11 @@ const App = () => {
     ])
   }
 
+  const handleRemoveQuotes = id => {
+    const newQuotes = quotes.filter(quote => quote.id !== id);
+    setQuotes(newQuotes);
+  }
+
   return (
     <Fragment>
       <h1>Quotes</h1>
@@ -26,9 +32,13 @@ const App = () => {
           </div>
           <div className="one-half column">
             <h2>Show quotes</h2>
-            {quotes.map(quote => (
-              <Quote key={quote.id} quote={quote} />
-            ))}
+            {quotes.length !== 0 ? quotes.map(quote => (
+              <Quote key={quote.id} quote={quote} handleRemoveQuotes={handleRemoveQuotes} />
+            )) : (
+              <Alert variant="primary">
+                Please insert quote
+              </Alert>
+            )}
           </div>
         </div>
       </div>
