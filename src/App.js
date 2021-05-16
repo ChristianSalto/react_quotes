@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import Form from './components/Form';
 import Quote from './components/Quote';
@@ -6,7 +6,19 @@ import Quote from './components/Quote';
 
 const App = () => {
 
-  const [quotes, setQuotes] = useState([])
+  console.log('2')
+  let quotesStore = JSON.parse(localStorage.getItem('quotes'));
+  if (!quotesStore) quotesStore = [];
+
+  const [quotes, setQuotes] = useState(quotesStore);
+
+
+  useEffect(() => {
+    console.log('1')
+    if (quotesStore) {
+      localStorage.setItem('quotes', JSON.stringify(quotes))
+    }
+  }, [quotes, quotesStore])
 
   const handleListQuotes = quote => {
     setQuotes([
