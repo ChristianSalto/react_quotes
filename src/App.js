@@ -6,7 +6,6 @@ import Quote from './components/Quote';
 
 const App = () => {
 
-  console.log('2')
   let quotesStore = JSON.parse(localStorage.getItem('quotes'));
   if (!quotesStore) quotesStore = [];
 
@@ -14,7 +13,8 @@ const App = () => {
 
 
   useEffect(() => {
-    console.log('1')
+
+
     if (quotesStore) {
       localStorage.setItem('quotes', JSON.stringify(quotes))
     }

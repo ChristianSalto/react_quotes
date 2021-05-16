@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Toast, Col } from 'react-bootstrap';
 
 const Quote = ({ quote, handleRemoveQuotes }) => {
@@ -28,6 +29,12 @@ const Quote = ({ quote, handleRemoveQuotes }) => {
       </Col>
     </Fragment>
   )
+}
+
+
+Quote.propTypes = {
+  quote: PropTypes.object.isRequired,
+  handleRemoveQuotes: PropTypes.func.isRequired,
 }
 
 export default Quote;

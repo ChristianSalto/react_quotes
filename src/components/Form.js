@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
 import Alert from 'react-bootstrap/Alert';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -112,6 +113,12 @@ const Form = ({ handleListQuotes }) => {
         : null}
     </Fragment>
   )
+}
+
+
+
+Form.propTypes = {
+  handleListQuotes: PropTypes.func.isRequired,
 }
 
 export default Form;
